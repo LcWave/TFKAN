@@ -169,12 +169,21 @@ class Exp_Main(Exp_Basic):
             total_params += param
         print(f"Total Trainable Params: {total_params}")
 
+        #gpu memeory
+        if self.args.use_gpu:
+            test_params_flop(self.model, self.args.seq_len, self.args.label_len, self.args.pred_len)
+
         if self.args.use_amp:
             scaler = torch.cuda.amp.GradScaler()
 
         for epoch in range(self.args.train_epochs):
             iter_count = 0
             train_loss = []
+
+            # Log memory usage at the beginning of the epoch
+            print(f"Epoch {epoch + 1}:")
+            print(f"Allocated memory: {torch.cuda.memory_allocated() / 1024 ** 2} MB")
+            print(f"Cached memory: {torch.cuda.memory_reserved() / 1024 ** 2} MB")
 
             self.model.train()
             epoch_time = time.time()
@@ -255,6 +264,11 @@ class Exp_Main(Exp_Basic):
                 print("Epoch: {0}, Steps: {1} | Train Loss: {2:.7f}".format(
                     epoch + 1, train_steps, train_loss))
                 early_stopping(train_loss, self.model, path)
+
+            # Log memory usage after training step
+            print(f"After training step {epoch + 1}:")
+            print(f"Allocated memory: {torch.cuda.memory_allocated() / 1024 ** 2} MB")
+            print(f"Cached memory: {torch.cuda.memory_reserved() / 1024 ** 2} MB")
 
             if early_stopping.early_stop:
                 print("Early stopping")
