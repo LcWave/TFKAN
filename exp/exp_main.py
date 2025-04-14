@@ -2,7 +2,7 @@ from torch.optim import lr_scheduler
 
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from models import DLinear, NLinear, FreTS, AllD, AllNoD, TDFNoD, TimeBranch, FreqBranch, MLP
+from models import DLinear, NLinear, TFKAN, AllD, AllNoD, TDFNoD, TimeBranch, FreqBranch, MLP
 from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
 from utils.metrics import metric
 
@@ -29,7 +29,7 @@ class Exp_Main(Exp_Basic):
         model_dict = {
             'DLinear': DLinear,
             'NLinear': NLinear,
-            'FreLinear': FreTS,
+            'FreLinear': TFKAN,
             'AllDLinear': AllD,
             'AllNoDLinear': AllNoD,
             'TDFNoDLinear': TDFNoD,
