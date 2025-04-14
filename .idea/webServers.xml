@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="9cd774bc-c70c-4c58-aaae-4a5029efaca9" name="public_yam">
+        <fileTransfer accessType="SFTP" host="122.207.108.16" port="50027" sshConfigId="c08dfec2-cb04-4286-8224-982b9bb2b090" sshConfig="csuyam@122.207.108.16:50027 password">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" keepAliveTimeout="0" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
