@@ -1,6 +1,6 @@
 from data_provider.data_loader import Dataset_Solar, Dataset_Covid, Dataset_Custom, Dataset_Pred, Dataset_Custom_, Dataset_ill
 from torch.utils.data import DataLoader
-
+ 
 data_dict = {
     'ETTh1': Dataset_Custom_,#Dataset_ETT_hour,
     'ETTm1': Dataset_Custom_,
