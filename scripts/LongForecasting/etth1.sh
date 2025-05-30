@@ -21,11 +21,11 @@ python -u run_longExp.py \
   --pred_len 96 \
   --enc_in 7 \
   --itr 1 \
-  --batch_size 4 \
+  --batch_size 8 \
   --learning_rate 0.0001 \
   --lradj type1 \
   --channel_independence 0 \
-  --weight_decay 0.00001 \
+  --weight_decay 0 \
   --use_bias  >logs/LongForecasting/$model_name'_'ETTh1_$seq_len'_'96.log
 
 python -u run_longExp.py \

@@ -60,10 +60,10 @@ python -u run_longExp.py \
   --enc_in 7 \
   --itr 1 \
   --batch_size 4 \
-  --learning_rate 0.00005 \
+  --learning_rate 0.00001 \
   --lradj type1 \
   --channel_independence 0 \
-  --weight_decay 0.0001 \
+  --weight_decay 0 \
   --use_bias  >logs/LongForecasting/$model_name'_'ETTm1_$seq_len'_'336.log
 
 python -u run_longExp.py \

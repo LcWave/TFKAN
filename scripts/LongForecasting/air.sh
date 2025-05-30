@@ -21,8 +21,8 @@ python -u run_longExp.py \
   --pred_len 96 \
   --enc_in 13 \
   --itr 1 \
-  --batch_size 4 \
-  --learning_rate 0.00001 \
+  --batch_size 32 \
+  --learning_rate 0.0001 \
   --lradj type1 \
   --channel_independence 0 \
   --weight_decay 0.001 \
@@ -40,7 +40,7 @@ python -u run_longExp.py \
   --pred_len 192 \
   --enc_in 13 \
   --itr 1 \
-  --batch_size 4 \
+  --batch_size 32 \
   --learning_rate 0.00001 \
   --lradj type1 \
   --channel_independence 0 \
@@ -59,11 +59,12 @@ python -u run_longExp.py \
   --pred_len 336 \
   --enc_in 13 \
   --itr 1 \
-  --batch_size 16 \
+  --batch_size 8 \
   --learning_rate 0.0001 \
   --lradj type1 \
   --channel_independence 0 \
-  --weight_decay 0.001  >logs/LongForecasting/$model_name'_'air_$seq_len'_'336.log
+  --weight_decay 0.001 \
+  --use_bias  >logs/LongForecasting/$model_name'_'air_$seq_len'_'336.log
 
 python -u run_longExp.py \
   --is_training 1 \
@@ -77,9 +78,9 @@ python -u run_longExp.py \
   --pred_len 720 \
   --enc_in 13 \
   --itr 1 \
-  --batch_size 8 \
+  --batch_size 16 \
   --learning_rate 0.0001 \
   --lradj type1 \
   --channel_independence 0 \
-  --weight_decay 0.0001 \
+  --weight_decay 0.001 \
   --use_bias  >logs/LongForecasting/$model_name'_'air_$seq_len'_'720.log

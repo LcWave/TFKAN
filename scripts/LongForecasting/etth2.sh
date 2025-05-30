@@ -21,11 +21,11 @@ python -u run_longExp.py \
   --pred_len 96 \
   --enc_in 7 \
   --itr 1 \
-  --batch_size 8 \
-  --learning_rate 0.0001 \
+  --batch_size 16 \
+  --learning_rate 0.001 \
   --lradj type1 \
   --channel_independence 0 \
-  --weight_decay 0.0001 \
+  --weight_decay 0.001 \
   --use_bias  >logs/LongForecasting/$model_name'_'ETTh2_$seq_len'_'96.log
 
 python -u run_longExp.py \
@@ -40,11 +40,11 @@ python -u run_longExp.py \
   --pred_len 192 \
   --enc_in 7 \
   --itr 1 \
-  --batch_size 32 \
+  --batch_size 8 \
   --learning_rate 0.0001 \
   --lradj type1 \
   --channel_independence 0 \
-  --weight_decay 0.0001 \
+  --weight_decay 0.001 \
   --use_bias  >logs/LongForecasting/$model_name'_'ETTh2_$seq_len'_'192.log
 
 python -u run_longExp.py \
@@ -60,7 +60,7 @@ python -u run_longExp.py \
   --enc_in 7 \
   --itr 1 \
   --batch_size 8 \
-  --learning_rate 0.0001 \
+  --learning_rate 0.01 \
   --lradj type1 \
   --channel_independence 0 \
   --weight_decay 0.001 \
@@ -78,8 +78,9 @@ python -u run_longExp.py \
   --pred_len 720 \
   --enc_in 7 \
   --itr 1 \
-  --batch_size 8 \
-  --learning_rate 0.0006 \
+  --batch_size 4 \
+  --learning_rate 0.0001 \
   --lradj type1 \
   --channel_independence 0 \
-  --weight_decay 0.0008  >logs/LongForecasting/$model_name'_'ETTh2_$seq_len'_'720.log
+  --weight_decay 0.001 \
+  --use_bias  >logs/LongForecasting/$model_name'_'ETTh2_$seq_len'_'720.log
