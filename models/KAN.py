@@ -1,7 +1,7 @@
 import torch
 import torch.nn.functional as F
 import math
-
+ 
 
 class KANLinear(torch.nn.Module):
     def __init__(
