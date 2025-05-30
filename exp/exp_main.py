@@ -56,42 +56,6 @@ class Exp_Main(Exp_Basic):
         criterion = nn.MSELoss()
         return criterion
 
-    def plot_spline_response(self, setting, layer_type='KAN_freq', layer_idx=0, in_dim=0, out_dim=0):
-        """
-        Visualize the B-spline response of a specific KANLinear layer.
-        """
-        import matplotlib.pyplot as plt
-        import numpy as np
-
-        path = os.path.join(self.args.checkpoints, setting)
-        self.model.load_state_dict(torch.load(os.path.join(path, 'checkpoint.pth')))
-        self.model.eval()
-
-        if layer_type == 'KAN_freq':
-            kan_layer = self.model.KAN_freq.layers[layer_idx]
-        elif layer_type == 'KAN_time':
-            kan_layer = self.model.KAN_time.layers[layer_idx]
-        else:
-            print("Unsupported layer type.")
-            return
-
-        grid = kan_layer.grid[in_dim].detach().cpu().numpy()
-        weights = kan_layer.scaled_spline_weight[out_dim, in_dim].detach().cpu().numpy()
-
-        xs = np.linspace(grid[0], grid[-1], 500)
-        basis = []
-        for i in range(len(weights)):
-            bi = np.maximum(1 - np.abs((xs - grid[i]) / (grid[1] - grid[0])), 0)
-            basis.append(bi)
-        spline_out = np.sum([w * b for w, b in zip(weights, basis)], axis=0)
-
-        plt.plot(xs, spline_out)
-        plt.title(f"Spline Activation: {layer_type} L{layer_idx}, in={in_dim}, out={out_dim}")
-        plt.xlabel("Input value")
-        plt.ylabel("Activation output")
-        plt.grid(True)
-        plt.show()
-
     def vali(self, vali_data, vali_loader, criterion):
         total_loss = []
         self.model.eval()
@@ -168,10 +132,6 @@ class Exp_Main(Exp_Basic):
             param = parameter.numel()
             total_params += param
         print(f"Total Trainable Params: {total_params}")
-
-        #gpu memeory
-        if self.args.use_gpu:
-            test_params_flop(self.model, self.args.seq_len, self.args.label_len, self.args.pred_len)
 
         if self.args.use_amp:
             scaler = torch.cuda.amp.GradScaler()
@@ -351,9 +311,6 @@ class Exp_Main(Exp_Basic):
                     pd = np.concatenate((input[0, :, -1], pred[0, :, -1]), axis=0)
                     visual(gt, pd, os.path.join(folder_path, str(i) + '.pdf'))
 
-        if self.args.test_flop:
-            test_params_flop((batch_x.shape[1],batch_x.shape[2]))
-            exit()
         preds = np.array(preds)
         trues = np.array(trues)
         inputx = np.array(inputx)
