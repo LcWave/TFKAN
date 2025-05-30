@@ -21,11 +21,11 @@ python -u run_longExp.py \
   --pred_len 96 \
   --enc_in 21 \
   --itr 1 \
-  --batch_size 8 \
-  --learning_rate 0.0001 \
+  --batch_size 4 \
+  --learning_rate 0.01 \
   --lradj type1 \
   --channel_independence 0 \
-  --weight_decay 0 \
+  --weight_decay 0.00001 \
   --use_bias  >logs/LongForecasting/$model_name'_'Weather_$seq_len'_'96.log
 
 python -u run_longExp.py \
@@ -40,11 +40,11 @@ python -u run_longExp.py \
   --pred_len 192 \
   --enc_in 21 \
   --itr 1 \
-  --batch_size 16 \
-  --learning_rate 0.0001 \
+  --batch_size 8 \
+  --learning_rate 0.001 \
   --lradj type1 \
   --channel_independence 0 \
-  --weight_decay 0 \
+  --weight_decay 0.00001 \
   --use_bias  >logs/LongForecasting/$model_name'_'Weather_$seq_len'_'192.log
 
 python -u run_longExp.py \
@@ -59,8 +59,8 @@ python -u run_longExp.py \
   --pred_len 336 \
   --enc_in 21 \
   --itr 1 \
-  --batch_size 8 \
-  --learning_rate 0.0001 \
+  --batch_size 4 \
+  --learning_rate 0.001 \
   --lradj type1 \
   --channel_independence 0 \
   --weight_decay 0 \
@@ -78,9 +78,9 @@ python -u run_longExp.py \
   --pred_len 720 \
   --enc_in 21 \
   --itr 1 \
-  --batch_size 8 \
-  --learning_rate 0.0001 \
+  --batch_size 16 \
+  --learning_rate 0.01 \
   --lradj type1 \
   --channel_independence 0 \
-  --weight_decay 0 \
+  --weight_decay 0.001 \
   --use_bias  >logs/LongForecasting/$model_name'_'Weather_$seq_len'_'720.log
