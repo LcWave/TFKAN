@@ -17,7 +17,7 @@ parser.add_argument('--is_training', type=int, default=1, help='status')
 parser.add_argument('--train_only', type=bool, default=False, help='perform training on full input dataset without validation and testing')
 parser.add_argument('--model_id', type=str, default='ETTm1', help='model id')
 parser.add_argument('--model', type=str, default='FreLinear',
-                    help='model name, options: [NLinear, DLinear, FreLinear]')
+                    help='model name, options: [FreLinear]')
 
 # data loader
 parser.add_argument('--data', type=str, default='ETTm1', help='dataset type')
