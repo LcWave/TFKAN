@@ -1,13 +1,17 @@
 # TFKAN: Time-Frequency KAN for Long-Term Time Series Forecasting
 
-This repository provides the official PyTorch implementation of our paper:  
+This repository provides the official PyTorch implementation of our paper:
+
 **"TFKAN: Time-Frequency KAN for Long-Term Time Series Forecasting"**
 
-TFKAN is a dual-branch architecture that integrates Kolmogorov-Arnold Networks (KANs) into both time and frequency domains, aiming to capture global periodicity and local trends more effectively for long-term forecasting tasks.
+TFKAN introduces a dual-branch architecture that integrates Kolmogorov-Arnold Networks (KANs) into both time and frequency domains. By jointly modeling temporal dynamics and spectral characteristics, TFKAN aims to better capture global periodicity and local variations for long-term time series forecasting.
 
-The full paper is now available on arXiv: https://arxiv.org/abs/2506.12696
+The paper has been published in **Neurocomputing**:
 
-If you find this repository helpful, please consider citing the paper.
+📄 Paper: https://www.sciencedirect.com/science/article/pii/S0925231226019569  
+🔗 DOI: https://doi.org/10.1016/j.neucom.2026.134558
+
+If you find this repository useful in your research, please consider citing our paper.
 
 ---
 
@@ -44,6 +48,25 @@ Alternatively, you can execute a predefined script (e.g., for ETTm1) on a Linux 
 bash ./scripts/ettm1.sh
 ```
 
+---
+## Citation
+
+If you use the code or ideas from this repository, please cite our paper:
+
+```bibtex
+@article{KUI2026134558,
+title = {TFKAN: Time-frequency KAN for long-term time series forecasting},
+journal = {Neurocomputing},
+volume = {701},
+pages = {134558},
+year = {2026},
+issn = {0925-2312},
+doi = {10.1016/j.neucom.2026.134558},
+url = {https://www.sciencedirect.com/science/article/pii/S0925231226019569},
+author = {Xiaoyan Kui and Canwei Liu and Qinsong Li and Zhipeng Hu and Yangyang Shi and Weixin Si and Beiji Zou},
+keywords = {Time series forecasting, Long-term forecasting, Kolmogorov–Arnold Networks, Frequency domain, Fourier transform}
+}
+```
 ---
 
 ## Acknowledgements
