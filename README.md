@@ -7,7 +7,7 @@ This repository provides the official PyTorch implementation of our paper:
 TFKAN introduces a dual-branch architecture that integrates Kolmogorov-Arnold Networks (KANs) into both time and frequency domains. By jointly modeling temporal dynamics and spectral characteristics, TFKAN aims to better capture global periodicity and local variations for long-term time series forecasting.
 
 <p align="center">
-  <img src="figures/TFKAN.pdf" width="90%">
+  <img src="figures/TFKAN.png" width="90%">
 </p>
 
 **Overview of TFKAN.** The proposed framework consists of a time-domain branch and a frequency-domain branch, where KAN-based adaptive representations are jointly learned to enhance long-term forecasting performance.
