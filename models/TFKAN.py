@@ -2,7 +2,7 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 import numpy as np
-from models import comKAN, KAN
+from models import KAN
 
 class Model(nn.Module):
     def __init__(self, configs):
