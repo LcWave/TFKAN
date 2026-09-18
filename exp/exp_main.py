@@ -2,8 +2,8 @@ from torch.optim import lr_scheduler
 
 from data_provider.data_factory import data_provider
 from exp.exp_basic import Exp_Basic
-from models import DLinear, NLinear, TFKAN, AllD, AllNoD, TDFNoD, TimeBranch, FreqBranch, MLP
-from utils.tools import EarlyStopping, adjust_learning_rate, visual, test_params_flop
+from models import TFKAN
+from utils.tools import EarlyStopping, adjust_learning_rate, visual
 from utils.metrics import metric
 
 import numpy as np
@@ -27,16 +27,7 @@ class Exp_Main(Exp_Basic):
 
     def _build_model(self):
         model_dict = {
-            'DLinear': DLinear,
-            'NLinear': NLinear,
             'FreLinear': TFKAN,
-            'AllDLinear': AllD,
-            'AllNoDLinear': AllNoD,
-            'TDFNoDLinear': TDFNoD,
-            'TimeBranchLinear': TimeBranch,
-            'FreqBranchLinear': FreqBranch,
-            'MLPLinear': MLP
-            # 'FreLinear': comTS
         }
         model = model_dict[self.args.model].Model(self.args).float()
 
